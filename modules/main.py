@@ -223,19 +223,7 @@ async def account_login(bot: Client, m: Message):
                     except FloodWait as e:
                         await m.reply_text(str(e))
                         time.sleep(e.x)
-                        continue
-                elif "ext=html" or ".html" in url:
-                    try:
-                        cmd = f'yt-dlp -o "{name}.html" "{url}"'
-                        download_cmd = f"{cmd} -R 25 --fragment-retries 25"
-                        os.system(download_cmd)
-                        copy = await bot.send_document(chat_id=m.chat.id, document=f'{name}.html', caption=cc1)
-                        count += 1
-                        os.remove(f'{name}.html')
-                    except FloodWait as e:
-                        await m.reply_text(str(e))
-                        time.sleep(e.x)
-                        continue        
+                        continue                        
                 else:
                     Show = f"**⥥ Downloading ➤**\n**Name ➤** `{name}\n\nQuality ➤ {raw_text2}` \n\n**Bot By ➤ **@MASOOMGURJARTG"
                
